@@ -84,14 +84,7 @@ module.exports = function (grunt) {
                 open: '<%= depserveOpenUrl %>'
             }
         },
-        webdriver: {
-            options: {
-                specFiles: ['test/*spec.js']
-            },
-            local: {
-                webdrivers: ['chrome']
-            }
-        },
+
         concurrent: {
             devmode: {
                 tasks: ['watch', 'depserve'],
@@ -131,8 +124,7 @@ module.exports = function (grunt) {
 
     // Default task.
     grunt.registerTask('test', 'Test', [
-        'jshint',
-        'webdriver'
+        'jshint'
     ]);
 
     grunt.registerTask('release', 'Release', [
