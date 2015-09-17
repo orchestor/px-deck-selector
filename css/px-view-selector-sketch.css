@@ -519,24 +519,26 @@ html {
 .viewport--full-height {
   min-height: 100vh; }
 
-.circle {
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  box-sizing: content-box;
-  /* Even though we use shadow DOM in this component, Safari insists on bleeding styles through from outside, so reset the resetting of this */
-  border: 1px black dashed;
-  font-size: 2rem;
-  text-align: center;
-  padding: 1.25rem 0.4rem 0.4rem 0.4rem;
-  border-radius: 50%; }
+.list-bare {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
 
-.counter {
-  display: inline-block;
-  min-width: 6.5rem;
-  height: 3rem; }
+.dropdown-text {
+  cursor: pointer; }
+
+.dropdown-menu {
+  cursor: pointer;
+  position: absolute;
+  width: calc(14.6rem - 4rem);
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 0.6666666667rem 0; }
+  .dropdown-menu div {
+    display: block;
+    padding: 0 0.6666666667rem;
+    line-height: 2;
+    text-decoration: none; }
 
 /*------------------------------------*    #CLEARFIX
 \*------------------------------------*/

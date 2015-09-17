@@ -16,11 +16,17 @@ Element providing solution to no problem in particular. As a simple, increments 
 <dom-module id="px-view-selector">
     <link rel="import" type="css" href="css/px-view-selector.css"/>
     <template>
-        <div>{{selectedView.name}}</div>
-        <div>-----</div>
-        <template is="dom-repeat" items="{{views}}" as="view">
-            <div on-click="selectView">{{view.name}}</div>
-        </template>
+        <div class="dropdown-text" on-click="toggleDropdown">
+            <span>{{dropdownName}}</span>
+            <i class="fa fa-caret-down"></i>
+        </div>
+        <ul id="dropdown" class="dropdown-menu list-bare" hidden>
+            <template is="dom-repeat" items="{{views}}" as="view">
+                <li on-click="selectView">
+                    <div>{{view.name}}</div>
+                </li>
+            </template>
+        </ul>            
     </template>
 </dom-module>
 
@@ -31,15 +37,33 @@ Element providing solution to no problem in particular. As a simple, increments 
 
         properties: {
             views: {
-                type: Array
+                type: Array,
+                observer: 'changeDropdownName'
             },
-            selectedView: {
-                type: Object
+            selecteddeckurl: {
+                type: String,
+                notify: true,
+                reflectToAttribute: true
             }
         },
 
+        changeDropdownName: function() {
+            var dropdownName = '';
+
+            if(this.views && this.views.length > 0) { // if no selected view set, use the first view
+                dropdownName = this.views[0].name;
+            }
+            
+            this.set('dropdownName', dropdownName);
+        },
+
+        toggleDropdown: function() {
+            this.$.dropdown.hidden = !this.$.dropdown.hidden;
+        },
         selectView: function(e) {
-            this.set('selectedView', e.model.view);
+            this.set('dropdownName', e.model.view.name);
+            this.set('selecteddeckurl', e.model.view.url);
+            this.$.dropdown.hidden = true;
         }
 
     });

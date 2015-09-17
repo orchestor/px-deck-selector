@@ -24,12 +24,14 @@ common/abstract rules go in px-view-selector-sketch.scss, not in this file.
 
 @import 'px-view-selector-sketch.scss';
 
-.circle {
-  border-style: none;
-  box-shadow: .2rem .2rem .2rem 0 rgba($black,.5);
-}
-
-.counter {
-  background-color: $blue;
-  color: $white;
+.dropdown-menu {
+  border-color: $gray5;
+  background-color: $gray1;
+  li div {
+    color: $gray9;
+    &:hover {
+      color: $white;
+      background-color: $primary-blue;
+    }
+  }
 }
