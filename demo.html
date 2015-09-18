@@ -1,14 +1,14 @@
-    <!doctype html>
+<!doctype html>
 
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>px-view-selector Demo</title>
+        <title>px-deck-selector Demo</title>
         <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
         <script src="../webcomponentsjs/webcomponents-lite.min.js"></script>
         <!-- Import custom element. Note: see comment about relative paths to dependencies in the *.html file referenced below -->
-        <link rel="import" href="px-view-selector.html"/>
+        <link rel="import" href="px-deck-selector.html"/>
         <link rel="import" href="../px-theme/px-theme.html"/>
     </head>
 
@@ -18,13 +18,13 @@
 
         <template is="dom-bind">
 
-            <div>Initializing with views, selected view url: <span>{{url}}</span></div>
-            <px-view-selector id="withViews" selecteddeckurl="{{url}}"></px-view-selector>
+            <div>Initializing with decks, selected deck url: <span>{{url}}</span></div>
+            <px-deck-selector id="withDecks" selected-deck-url="{{url}}"></px-deck-selector>
 
             <br><br>
 
-            <div>No views - view selector is hidden</div>
-            <px-view-selector id="noViews"></px-view-selector>
+            <div>No decks - deck selector is hidden</div>
+            <px-deck-selector id="noDecks"></px-deck-selector>
 
         </template>
 
@@ -32,8 +32,8 @@
 
             window.addEventListener('WebComponentsReady', function() {
 
-                var viewSelector = document.getElementById('withViews');
-                viewSelector.set('views', [
+                var selector = document.getElementById('withDecks');
+                selector.set('decks', [
                     {name: 'First Deck', url: '/deck1'},
                     {name: 'Second Deck', url: '/deck2'},
                     {name: 'Third Deck', url: '/deck3'}                    

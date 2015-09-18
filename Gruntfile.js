@@ -23,8 +23,8 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'css/noprefix/px-view-selector-sketch.css': 'sass/px-view-selector-sketch.scss',
-                    'css/noprefix/px-view-selector.css': 'sass/px-view-selector-predix.scss'
+                    'css/noprefix/px-deck-selector-sketch.css': 'sass/px-deck-selector-sketch.scss',
+                    'css/noprefix/px-deck-selector.css': 'sass/px-deck-selector-predix.scss'
                 }
             }
         },

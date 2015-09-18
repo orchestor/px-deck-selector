@@ -1,8 +1,8 @@
 {
-  "name": "px-view-selector",
+  "name": "px-deck-selector",
   "version": "0.0.1",
   "main": [
-    "px-view-selector.html"
+    "px-deck-selector.html"
   ],
   "ignore": [
     ".*",

@@ -9,8 +9,59 @@
  * under which the software has been supplied.
  */
 /*
+THIS FILE SHOULD CONTAIN ONLY RULES SPECIFIC TO PREDIX BRANDING
+common/abstract rules go in px-deck-selector-sketch.scss, not in this file.
+*/
+/*------------------------------------*    #PX-COLORS-DESIGN
+\*------------------------------------*/
+/**
+ * Brand Colors
+ */
+/**
+     * Primary
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
+/**
+ * Monochromatic (gray10 is darkest, gray1 is lightest)
+ */
+/**
+ * Buttons
+ */
+/**
+ * Selection
+ */
+/**
+ * Alerts
+ */
+/**
+ * Data Visualization
+ */
+/**
+     * Basic
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
+/*
+ * Copyright (c) 2014 GE Global Research. All rights reserved.
+ *
+ * The copyright to the computer software herein is the property of
+ * GE Global Research. The software may be used and/or copied only
+ * with the written permission of GE Global Research or in accordance
+ * with the terms and conditions stipulated in the agreement/contract
+ * under which the software has been supplied.
+ */
+/*
 THIS FILE SHOULD CONTAIN ONLY ABSTRACT/'SKETCH' THEME RULES, NOT SPECIFIC TO PREDIX BRANDING
-Predix branding rules go in px-view-selector-predix.scss, not in this file.
+Predix branding rules go in px-deck-selector-predix.scss, not in this file.
 */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
@@ -1075,3 +1126,12 @@ html {
     -webkit-flex: none !important;
         -ms-flex: none !important;
             flex: none !important; } }
+
+.dropdown-menu {
+  border-color: #b1b1bc;
+  background-color: #f7f7fc; }
+  .dropdown-menu li div {
+    color: #3b3b3f; }
+    .dropdown-menu li div:hover {
+      color: white;
+      background-color: #3e87e8; }
