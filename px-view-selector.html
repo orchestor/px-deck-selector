@@ -2,27 +2,24 @@
 
 
 <!--
-Element providing solution to no problem in particular. As a simple, increments a counter when clicked.
+Element which displays a dropdown of views and returns the url for the selected view.
 
 ##### Usage
 
-    <px-view-selector counter-value="1">Hi</px-view-selector>
+    <px-view-selector views="{{...}}" selecteddeckurl="{{...}}"></px-view-selector>
 
-@element px-view-selector
-@blurb Element providing solution to no problem in particular.
-@homepage index.html
 @demo demo.html
 -->
 <dom-module id="px-view-selector">
     <link rel="import" type="css" href="css/px-view-selector.css"/>
     <template>
-        <div class="dropdown-text" on-click="toggleDropdown">
-            <span>{{dropdownName}}</span>
+        <div class="dropdown-text" on-click="_toggleDropdown" hidden="{{!isViews}}">
+            <span class="epsilon">{{selectedView.name}}</span>
             <i class="fa fa-caret-down"></i>
         </div>
         <ul id="dropdown" class="dropdown-menu list-bare" hidden>
             <template is="dom-repeat" items="{{views}}" as="view">
-                <li on-click="selectView">
+                <li on-click="_selectView">
                     <div>{{view.name}}</div>
                 </li>
             </template>
@@ -36,33 +33,66 @@ Element providing solution to no problem in particular. As a simple, increments 
         is: 'px-view-selector',
 
         properties: {
+
+            /**
+             * List of views to display.
+             * 
+             *      [
+             *          {name: 'First Deck', url: '/deck1'},
+             *          {name: 'Second Deck', url: '/deck2'},
+             *          {name: 'Third Deck', url: '/deck3'}                    
+             *      ]
+             *
+             */
             views: {
                 type: Array,
-                observer: 'changeDropdownName'
+                observer: '_setViews'
             },
+
+            /**
+             * Url of the selected view.
+             */
             selecteddeckurl: {
                 type: String,
                 notify: true,
                 reflectToAttribute: true
-            }
+            },
+
+            /**
+             * @private
+             */
+             isViews: {
+                type: Boolean,
+                value: false
+             }
         },
 
-        changeDropdownName: function() {
-            var dropdownName = '';
+        observers: ['_broadcastSelectedViewUrl(selectedView)'],
 
-            if(this.views && this.views.length > 0) { // if no selected view set, use the first view
-                dropdownName = this.views[0].name;
+        _setViews: function() {
+            this.set('isViews', this.views && this.views.length > 0);
+
+            var selectedView = null;
+
+            if(this.isViews) { 
+                selectedView = this.views[0];
             }
             
-            this.set('dropdownName', dropdownName);
+            this.set('selectedView', selectedView);
         },
 
-        toggleDropdown: function() {
+        _toggleDropdown: function() {
             this.$.dropdown.hidden = !this.$.dropdown.hidden;
         },
-        selectView: function(e) {
-            this.set('dropdownName', e.model.view.name);
-            this.set('selecteddeckurl', e.model.view.url);
+
+        _broadcastSelectedViewUrl: function() {
+            if(this.selectedView) {
+                this.set('selecteddeckurl', this.selectedView.url);                
+            }
+        },
+
+        _selectView: function(e) {
+            this.set('selectedView', e.model.view);
             this.$.dropdown.hidden = true;
         }
 

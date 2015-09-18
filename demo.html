@@ -18,14 +18,12 @@
 
         <template is="dom-bind">
 
-            <px-view-selector id="withViews"></px-view-selector>
+            <div>Initializing with views, selected view url: <span>{{url}}</span></div>
+            <px-view-selector id="withViews" selecteddeckurl="{{url}}"></px-view-selector>
 
             <br><br>
 
-            <px-view-selector id="alreadySelectedView"></px-view-selector>
-
-            <br><br>
-
+            <div>No views - view selector is hidden</div>
             <px-view-selector id="noViews"></px-view-selector>
 
         </template>
@@ -40,14 +38,6 @@
                     {name: 'Second Deck', url: '/deck2'},
                     {name: 'Third Deck', url: '/deck3'}                    
                 ]);
-
-                var viewSelector = document.getElementById('alreadySelectedView');
-                var views = [
-                    {name: 'First Deck', url: '/deck1'},
-                    {name: 'Second Deck', url: '/deck2'}
-                ]
-                viewSelector.set('views', views);
-                viewSelector.set('selectedView', views[1]);
 
             });
 

@@ -29,6 +29,7 @@ Predix branding rules go in px-view-selector-predix.scss, not in this file.
 // Base
 @import "px-flexbox-design/_base.flexbox.scss";
 @import "px-viewport-design/_base.viewport.scss";
+@import "px-headings-design/_base.headings.scss";
 
 // Objects
 @import "px-list-bare-design/_objects.list-bare.scss";
