@@ -13,7 +13,7 @@ Element which displays a dropdown of decks and returns the url for the selected 
 <dom-module id="px-deck-selector">
     <link rel="import" type="css" href="css/px-deck-selector.css"/>
     <template>
-        <div class="dropdown-text" on-click="_toggleDropdown" hidden="{{!isDecks}}">
+        <div class="dropdown-text" on-click="_toggleDropdown" hidden$="{{!isDecks}}">
             <span class="epsilon">{{selectedDeck.name}}</span>
             <i class="fa fa-caret-down"></i>
         </div>
@@ -68,6 +68,15 @@ Element which displays a dropdown of decks and returns the url for the selected 
              isDecks: {
                 type: Boolean,
                 value: false
+             },
+
+             /**
+              * @private
+              * needed for IE...
+              */
+             isDropdownOpen: {
+                type: Boolean,
+                value: false
              }
         },
 
@@ -86,7 +95,8 @@ Element which displays a dropdown of decks and returns the url for the selected 
         },
 
         _toggleDropdown: function() {
-            this.$.dropdown.hidden = !this.$.dropdown.hidden;
+            this.isDropdownOpen = !this.isDropdownOpen;
+            this.toggleAttribute('hidden', !this.isDropdownOpen, this.$.dropdown);
         },
 
         _broadcastSelectedDeckUrl: function() {
@@ -97,7 +107,7 @@ Element which displays a dropdown of decks and returns the url for the selected 
 
         _selectDeck: function(e) {
             this.set('selectedDeck', e.model.deck);
-            this.$.dropdown.hidden = true;
+            this._toggleDropdown();
         }
 
     });
