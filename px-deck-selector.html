@@ -23,7 +23,7 @@ Element which displays a dropdown of decks and returns the url for the selected 
                     <div>{{deck.name}}</div>
                 </li>
             </template>
-        </ul>            
+        </ul>
     </template>
 </dom-module>
 
@@ -36,11 +36,11 @@ Element which displays a dropdown of decks and returns the url for the selected 
 
             /**
              * List of decks to display.
-             * 
+             *
              *      [
              *          {name: 'First Deck', url: '/deck1'},
              *          {name: 'Second Deck', url: '/deck2'},
-             *          {name: 'Third Deck', url: '/deck3'}                    
+             *          {name: 'Third Deck', url: '/deck3'}
              *      ]
              *
              * The first deck will always be selected initially.
@@ -87,10 +87,10 @@ Element which displays a dropdown of decks and returns the url for the selected 
 
             var selectedDeck = null;
 
-            if(this.isDecks) { 
+            if(this.isDecks) {
                 selectedDeck = this.decks[0];
             }
-            
+
             this.set('selectedDeck', selectedDeck);
         },
 
@@ -101,7 +101,7 @@ Element which displays a dropdown of decks and returns the url for the selected 
 
         _broadcastSelectedDeckUrl: function() {
             if(this.selectedDeck) {
-                this.set('selectedDeckUrl', this.selectedDeck.url);                
+                this.set('selectedDeckUrl', this.selectedDeck.url);
             }
         },
 
