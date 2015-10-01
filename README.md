@@ -107,11 +107,11 @@ Attach an event listener using `addEventListener` like this:
 <px-deck-selector id="my-deck-selector"></px-deck-selector>
 ```
 ```javascript
-	var el = document.querySelector("#my-deck-selector");
-	el.addEventListener("selected-deck-url-changed", function(e) {
-		// do something on range-changed
-        console.log(e.detail.value);
-	});
+var el = document.querySelector("#my-deck-selector");
+el.addEventListener("selected-deck-url-changed", function(e) {
+	// do something on range-changed
+    console.log(e.detail.value);
+});
 ```
 
 ## Using Events
