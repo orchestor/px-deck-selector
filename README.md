@@ -92,7 +92,8 @@ Event fired on change to `selected-deck-url` value. Listeners will receive an ev
 Add a listener using the `on-selected-deck-url-changed` annotated event listener syntax as follows:
 
 ```html
-<px-deck-selector on-selected-deck-url-changed="selectedDeckURLChangedHandler"></px-deck-selector>
+<px-deck-selector on-selected-deck-url-changed="selectedDeckURLChangedHandler">
+</px-deck-selector>
 ```
 ```javascript
 var selectedDeckURLChangedHandler = function(e) {
