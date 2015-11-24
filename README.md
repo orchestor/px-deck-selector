@@ -57,11 +57,11 @@ Assign an array of objects to be displayed in the drop-down. Each object needs a
 ```html
 <px-deck-selector
 	...
-	decks="[
-        {name: 'First Deck', url: '/deck1'},
-        {name: 'Second Deck', url: '/deck2'},
-        {name: 'Third Deck', url: '/deck3'}                    
-    ]">
+	decks='[
+        {"name": "First Deck", "url": "/deck1"},
+        {"name": "Second Deck", "url": "/deck2"},
+        {"name": "Third Deck", "url": "/deck3"}                    
+    ]'>
 </px-deck-selector>
 ```
 
