@@ -33,12 +33,19 @@
             window.addEventListener('WebComponentsReady', function() {
 
                 var selector = document.getElementById('withDecks');
+
+                // set deck objects on the element
                 selector.set('decks', [
                     {name: 'First Deck', url: '/deck1'},
                     {name: 'Second Deck', url: '/deck2'},
-                    {name: 'Third Deck', url: '/deck3'}                    
+                    {name: 'Third Deck', url: '/deck3'}
                 ]);
 
+                // add test event listener
+                selector.addEventListener('selected-deck-url-changed', function(e) {
+                    console.log(e.detail.value);
+                });
+                
             });
 
         </script>

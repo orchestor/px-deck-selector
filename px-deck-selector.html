@@ -6,7 +6,7 @@ Element which displays a dropdown of decks and returns the url for the selected 
 
 ##### Usage
 
-    <px-deck-selector decks="{{...}}" selected-deck-url="{{...}}"></px-deck-selector>
+    <px-deck-selector decks="{{...}}" selected-deck="{{...}}"></px-deck-selector>
 
 @demo demo.html
 -->
@@ -23,7 +23,7 @@ Element which displays a dropdown of decks and returns the url for the selected 
                     <div>{{deck.name}}</div>
                 </li>
             </template>
-        </ul>            
+        </ul>
     </template>
 </dom-module>
 
@@ -36,11 +36,11 @@ Element which displays a dropdown of decks and returns the url for the selected 
 
             /**
              * List of decks to display.
-             * 
+             *
              *      [
-             *          {name: 'First Deck', url: '/deck1'},
-             *          {name: 'Second Deck', url: '/deck2'},
-             *          {name: 'Third Deck', url: '/deck3'}                    
+             *          {id: 1, name: 'First Deck', url: '/deck1'},
+             *          {id: 2, name: 'Second Deck', url: '/deck2'},
+             *          {id: 3, name: 'Third Deck', url: '/deck3'}
              *      ]
              *
              * The first deck will always be selected initially.
@@ -51,15 +51,14 @@ Element which displays a dropdown of decks and returns the url for the selected 
             },
 
             /**
-             * Url of the selected deck.
+             * selected deck.
              *
              * Only used for communicating out the selected deck.  The first deck
              * in the list of decks will always be selected initially.
              */
-            selectedDeckUrl: {
-                type: String,
-                notify: true,
-                reflectToAttribute: true
+            selectedDeck: {
+                type: Object,
+                notify: true
             },
 
             /**
@@ -80,29 +79,21 @@ Element which displays a dropdown of decks and returns the url for the selected 
              }
         },
 
-        observers: ['_broadcastSelectedDeckUrl(selectedDeck)'],
-
         _setDecks: function() {
             this.set('isDecks', this.decks && this.decks.length > 0);
 
             var selectedDeck = null;
 
-            if(this.isDecks) { 
+            if(this.isDecks) {
                 selectedDeck = this.decks[0];
             }
-            
+
             this.set('selectedDeck', selectedDeck);
         },
 
         _toggleDropdown: function() {
             this.isDropdownOpen = !this.isDropdownOpen;
             this.toggleAttribute('hidden', !this.isDropdownOpen, this.$.dropdown);
-        },
-
-        _broadcastSelectedDeckUrl: function() {
-            if(this.selectedDeck) {
-                this.set('selectedDeckUrl', this.selectedDeck.url);                
-            }
         },
 
         _selectDeck: function(e) {
