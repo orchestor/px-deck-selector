@@ -14,7 +14,7 @@
     "test"
   ],
   "dependencies": {
-    "polymer": "~1.0.0",
+    "polymer": "~v1.2.3",
     "px-theme": "https://github.com/PredixDev/px-theme.git#~0.3.5"
   },
   "devDependencies": {
