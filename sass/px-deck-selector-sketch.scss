@@ -47,6 +47,7 @@ Predix branding rules go in px-deck-selector-predix.scss, not in this file.
   border: 1px solid;
   border-radius: 3px;
   padding: $inuit-base-spacing-unit--small 0;
+  z-index: 99;
   div {
     display: block;
     padding: 0 $inuit-base-spacing-unit--small;

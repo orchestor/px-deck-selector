@@ -27,6 +27,7 @@ common/abstract rules go in px-deck-selector-sketch.scss, not in this file.
 .dropdown-menu {
   border-color: $gray5;
   background-color: $gray1;
+  z-index: 99;
   li div {
     color: $gray9;
     &:hover {

@@ -615,7 +615,8 @@ a {
   width: calc(14.6rem - 4rem);
   border: 1px solid;
   border-radius: 3px;
-  padding: 0.6666666667rem 0; }
+  padding: 0.6666666667rem 0;
+  z-index: 99; }
   .dropdown-menu div {
     display: block;
     padding: 0 0.6666666667rem;
