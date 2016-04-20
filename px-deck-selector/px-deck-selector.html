@@ -44,9 +44,11 @@ Element which displays a dropdown of decks and returns the url for the selected 
              *      ]
              *
              * The first deck will always be selected initially.
+             * Each object needs a `name` and `url` property.
              */
             decks: {
                 type: Array,
+                value: function() {return [];},
                 observer: '_setDecks'
             },
 
@@ -55,9 +57,11 @@ Element which displays a dropdown of decks and returns the url for the selected 
              *
              * Only used for communicating out the selected deck.  The first deck
              * in the list of decks will always be selected initially.
+
              */
             selectedDeck: {
                 type: Object,
+                value: function() {return {};},
                 notify: true
             },
 
@@ -100,6 +104,5 @@ Element which displays a dropdown of decks and returns the url for the selected 
             this.set('selectedDeck', e.model.deck);
             this._toggleDropdown();
         }
-
     });
 </script>
