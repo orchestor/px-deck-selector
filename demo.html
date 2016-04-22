@@ -23,6 +23,11 @@
 
             <br><br>
 
+            <div>Config Option to add or remove deck</>
+            <px-deck-selector id="withConfigOption" selected-deck-url="{{url}}" config-option="{{configOptions}}"></px-deck-selector>
+
+            <br><br>
+
             <div>No decks - deck selector is hidden</div>
             <px-deck-selector id="noDecks"></px-deck-selector>
 
@@ -41,11 +46,33 @@
                     {name: 'Third Deck', url: '/deck3'}
                 ]);
 
+              var selector1 = document.getElementById('withConfigOption');
+
+              selector1.set(
+
+                  'decks', [
+                    {name: 'First Deck', url: '/deck1'},
+                    {name: 'Second Deck', url: '/deck2'},
+                    {name: 'Third Deck', url: '/deck3'}
+                ]);
+
+              selector1.set(
+                'configOptions', {
+                  edit : true,
+                  actionType : "Add Dashboard",
+                  eventType : "addDashboard"
+                });
+
                 // add test event listener
                 selector.addEventListener('selected-deck-url-changed', function(e) {
                     console.log(e.detail.value);
                 });
-                
+
+              // add test event listener
+                selector1.addEventListener('deckEvent', function(e) {
+                    console.log(e.detail);
+                });
+
             });
 
         </script>

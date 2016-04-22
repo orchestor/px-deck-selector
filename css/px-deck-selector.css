@@ -1152,6 +1152,9 @@ a {
   border-color: #b1b1bc;
   background-color: #f7f7fc;
   z-index: 99; }
+  .dropdown-menu li.deck-editor{
+    border-top: 1px solid #CCCCCC;
+    padding-top: 10px; }
   .dropdown-menu li div {
     color: #3b3b3f; }
     .dropdown-menu li div:hover {
