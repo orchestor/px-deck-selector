@@ -28,6 +28,6 @@ module.exports = {
     }
   },
   suites: [
-    'test/px-deck-selector-test-fixture.html'
+    'test/fixture.html'
   ]
 };
