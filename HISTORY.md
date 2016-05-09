@@ -1,5 +1,9 @@
 v1.2.1
 ==================
+* added pull request test for travis and updated OSS Notice
+
+v1.2.1
+==================
 * added auto github pages functionality
 
 v1.2.0
