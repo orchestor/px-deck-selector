@@ -1,3 +1,7 @@
+v1.2.2
+==================
+* added oss_notice to bower ignore
+
 v1.2.1
 ==================
 * added pull request test for travis and updated OSS Notice
