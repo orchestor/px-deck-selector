@@ -35,4 +35,8 @@ common/abstract rules go in px-deck-selector-sketch.scss, not in this file.
       background-color: $primary-blue;
     }
   }
+  li.deck-editor{
+    border-top: 1px solid #CCCCCC;
+    padding-top: 10px;
+  }
 }
