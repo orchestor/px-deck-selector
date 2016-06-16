@@ -1,4 +1,4 @@
-# Px-Deck-Selector
+# Px-Deck-Selector [![Build Status](https://travis-ci.org/PredixDev/px-deck-selector.svg?branch=master)](https://travis-ci.org/PredixDev/px-deck-selector)
 
 Px-Deck-Selector displays a drop-down of decks and returns the url for the selected deck.
 

@@ -1,3 +1,11 @@
+v1.3.1
+==================
+* Bump px-theme version
+
+v1.3.0
+==================
+* Upgrade to Polymer 1.5.0
+
 v1.2.2
 ==================
 * added oss_notice to bower ignore
