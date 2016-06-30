@@ -41,19 +41,13 @@ Predix branding rules go in px-deck-selector-predix.scss, not in this file.
 }
 
 .dropdown-menu {
-  cursor: pointer; 
+  cursor: pointer;
   position: absolute;
   width: calc(#{calculateRem(219px)} - #{$inuit-base-spacing-unit * 4});
   border: 1px solid;
   border-radius: 3px;
   padding: $inuit-base-spacing-unit--small 0;
   z-index: 99;
-  div {
-    display: block;
-    padding: 0 $inuit-base-spacing-unit--small;
-    line-height: 2;
-    text-decoration: none;
- }
 }
 
 // Trumps
