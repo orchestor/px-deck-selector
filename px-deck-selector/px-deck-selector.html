@@ -23,6 +23,11 @@ Element which displays a dropdown of decks and returns the url for the selected 
                     <div>{{deck.name}}</div>
                 </li>
             </template>
+            <template is="dom-if" if="{{configOptions.edit}}">
+                <li on-click="_triggerDeckEvent" class="deck-editor">
+                  <div>{{configOptions.actionType}}</div>
+                </li>
+            </template>
         </ul>
     </template>
 </dom-module>
@@ -80,7 +85,15 @@ Element which displays a dropdown of decks and returns the url for the selected 
              isDropdownOpen: {
                 type: Boolean,
                 value: false
-             }
+             },
+
+            /*
+            * Config option
+            * */
+            configOptions: {
+              value: null,
+              notify: true
+            }
         },
 
         _setDecks: function() {
@@ -95,14 +108,59 @@ Element which displays a dropdown of decks and returns the url for the selected 
             this.set('selectedDeck', selectedDeck);
         },
 
-        _toggleDropdown: function() {
+        _toggleDropdown: function(e) {
+
             this.isDropdownOpen = !this.isDropdownOpen;
             this.toggleAttribute('hidden', !this.isDropdownOpen, this.$.dropdown);
+            /*
+            * adding event listener to the document when menu is opened
+            * */
+            if(e){
+                this._handleDocumentClick();
+            }
         },
 
         _selectDeck: function(e) {
-            this.set('selectedDeck', e.model.deck);
-            this._toggleDropdown();
+          this.set('selectedDeck', e.model.deck);
+          this._toggleDropdown(false);
+        },
+
+        /*
+        *  this will allow to take care of adding or removing deck
+        *  which needs to be handled from the host component
+        * */
+        _triggerDeckEvent: function(e){
+          this.fire('deckEvent', e.model.configOptions.eventType );
+          this._toggleDropdown(false);
+        },
+
+        /*
+        * only called when the when clicked outside of menu
+        * */
+        _closeMenu: function(e, el){
+          if (!el.contains(e.target)) {
+            this.isDropdownOpen = false;
+            el.setAttribute('hidden', true);
+            document.removeEventListener('mouseup', this.evtHandler, false);
+          }
+        },
+
+        /*
+        * Adding and removing event listener on the document
+        * */
+         _handleDocumentClick : function(){
+
+           var el = this.$.dropdown;
+           var self = this;
+
+           if (!el.hasAttribute('hidden')) {
+            document.addEventListener('mouseup', self.evtHandler = function(e){self._closeMenu(e, el)}, false);
+            //document.ddMenu = this;
+          }
+          else {
+            document.removeEventListener('mouseup', self.evtHandler, false);
+            //document.ddMenu = null;
+          }
         }
     });
 </script>
