@@ -1,6 +1,6 @@
 v1.4.1
 ==================
-* Added vulcanize
+* Added vulcanize 
 
 v1.4.0
 ==================
