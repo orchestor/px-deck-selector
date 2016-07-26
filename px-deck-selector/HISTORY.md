@@ -1,3 +1,11 @@
+v1.4.1
+==================
+* Added vulcanize 
+
+v1.4.0
+==================
+* Adding configuration option and closing menu when clicked outside of component.
+
 v1.3.1
 ==================
 * Bump px-theme version
