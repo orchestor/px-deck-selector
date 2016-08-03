@@ -1,6 +1,6 @@
 {
   "name": "px-deck-selector",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "main": [
     "px-deck-selector.html"
   ],
@@ -25,10 +25,10 @@
     "px-headings-design": "https://github.com/PredixDev/px-headings-design.git#~0.2.8"
   },
   "homepage": "https://github.com/PredixDev/px-deck-selector",
-  "_release": "1.4.1",
+  "_release": "1.4.2",
   "_resolution": {
     "type": "version",
-    "tag": "1.4.1",
+    "tag": "v1.4.2",
     "commit": "ad89c0c26f2ebed461b0f268c0b9a93d038a4c48"
   },
   "_source": "https://github.com/PredixDev/px-deck-selector.git",
