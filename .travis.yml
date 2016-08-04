@@ -2,33 +2,38 @@ sudo: required
 dist: trusty
 language: node_js
 node_js:
-- stable
+  - stable
 branches:
   except:
-  - gh-pages
+    - gh-pages
 addons:
-  firefox: "46.0"
+  firefox: '46.0'
   apt:
     sources:
-    - google-chrome
+      - google-chrome
     packages:
-    - google-chrome-stable
+      - google-chrome-stable
 before_script:
-- npm install web-component-tester
-- npm install bower
-- export PATH=$PWD/node_modules/.bin:$PATH
-- bower install
+  - npm install web-component-tester
+  - npm install bower
+  - 'export PATH=$PWD/node_modules/.bin:$PATH'
+  - bower install
 script:
-- xvfb-run wct --skip-plugin sauce
-- if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then wct --plugin sauce --skip-plugin
-  local; fi
+  - xvfb-run wct --skip-plugin sauce
+  - >-
+    if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then wct --plugin sauce
+    --skip-plugin local; fi
 env:
   global:
-  - secure: 277tq9427HnvHgXK3UsmE6cw1H7EFkKmeixrdIx0c2BS34jMa4+lDBx5huE9hm+5vtDW35qO4/JmOFNdx9BuL6XmPTjek5AyMV+XU3cUsBOPNgLLoB1t5OSth7dz2LUb54kRZbBjMLdUpucOouIonTGPqY36rM9t0FvCQaqXD6101GLnTjb81fPwSzfWl1JdeEQH77v45tKUK7KnUPWVboIVAtt3HR82MWz4rBx/CE4P9OJc2u+OC2RcCfffwG+SGEkJd/SvUc+Bgqk2NyLuCJWv+LL10kH6RDQBU8fFZt6IENIRq7gs+6fBXjPVZjmZHJrKDYBhi7RQmUyfjnNsyivcpNkGjwYYe/JXT5AdtZ3U8TODFZSmPtKjlJRljZmhVPD+8Z3uHmQpfzITVB2RbTF7Cf4cbh/y9Cr5TqJDKLfkcM/0pEFzmCmwzAjIxeTceHj3Sbt8osGo9U+twKPMp3Sfk/GR4rydn/0Uy3qYUIe1HKMZ2dNp8mb9VnQ3j5VLO+LlUA0icgDI3g5iPpPf+fD9KoF7fM6xZyt+9abQsZ8DCKtpVxFeFU26JXHFdIFy2hR8eM7UUha1qx8QIYu5EuhfBkHUGN68e7rgag9mqkAX9h2FAOV017hUyMTGLZGznNzgLx55mOuG62kMdbewTthfpaA0ziuffL4jtZC4Kzk=
-  - secure: ooPrwtf05eczxkdNI3BcIAaaGDbRkfb8TN5FE9Z3wrWO81DCDwADbuUnVS08bwCivdr+h15+Dej6raZxhbF0AU2rbHWDuttCewslIx2n+CW2CFQc1pvWqBmh8JFg4quamErZh/MXzo2QAPFsnDO9mxLfHCqXWLXjw/NTakXuQJ9TGpA9awKklV/BJh4IO8d+qHNKserW3tLwgQZIssgYni68JY80yL47wEP1UMRcSx0TnuR5TGey2yr/qJ+2u/Q1GIUn0f5l+mRKJWYWVMQC6qOJLLzunoHgSwYHlVyHZb+PYkDCPAr1/I4ELNic4joqX9Uva+DH+e+OsIy3uT3mvbdJZWHLddSTPX1XmVVNQ9M2vhuwQxlPiA574AXhnVojqinjDgbGRQR4E7kkYeKStE9DxB4DD9QVyNtqvxe0R3Qi3dotaIxYOCzMdcvxnGmBQitTVgF/iFndw0nLlOu3NXqu814xKBDEAY5yQXlvWI9SzuWo1OrXBgpZxMarLpL6UvNLKvysL3iVZRvEZ4rtDeI0JvH+LTJBkbtozy9zVsCD4h8NEJj8wZr2vuApiXfZORkZALsTn4uBvzdoK6yZQ2eHpL53RO3FDwKt2dyGAx3UVLGE2zj7pgKGM6Tz8p/tYCVTOOvBDnBwzvGXomIN6CUmFFpt1hHJZyALGaCe12I=
+    - secure: >-
+        277tq9427HnvHgXK3UsmE6cw1H7EFkKmeixrdIx0c2BS34jMa4+lDBx5huE9hm+5vtDW35qO4/JmOFNdx9BuL6XmPTjek5AyMV+XU3cUsBOPNgLLoB1t5OSth7dz2LUb54kRZbBjMLdUpucOouIonTGPqY36rM9t0FvCQaqXD6101GLnTjb81fPwSzfWl1JdeEQH77v45tKUK7KnUPWVboIVAtt3HR82MWz4rBx/CE4P9OJc2u+OC2RcCfffwG+SGEkJd/SvUc+Bgqk2NyLuCJWv+LL10kH6RDQBU8fFZt6IENIRq7gs+6fBXjPVZjmZHJrKDYBhi7RQmUyfjnNsyivcpNkGjwYYe/JXT5AdtZ3U8TODFZSmPtKjlJRljZmhVPD+8Z3uHmQpfzITVB2RbTF7Cf4cbh/y9Cr5TqJDKLfkcM/0pEFzmCmwzAjIxeTceHj3Sbt8osGo9U+twKPMp3Sfk/GR4rydn/0Uy3qYUIe1HKMZ2dNp8mb9VnQ3j5VLO+LlUA0icgDI3g5iPpPf+fD9KoF7fM6xZyt+9abQsZ8DCKtpVxFeFU26JXHFdIFy2hR8eM7UUha1qx8QIYu5EuhfBkHUGN68e7rgag9mqkAX9h2FAOV017hUyMTGLZGznNzgLx55mOuG62kMdbewTthfpaA0ziuffL4jtZC4Kzk=
+    - secure: >-
+        ooPrwtf05eczxkdNI3BcIAaaGDbRkfb8TN5FE9Z3wrWO81DCDwADbuUnVS08bwCivdr+h15+Dej6raZxhbF0AU2rbHWDuttCewslIx2n+CW2CFQc1pvWqBmh8JFg4quamErZh/MXzo2QAPFsnDO9mxLfHCqXWLXjw/NTakXuQJ9TGpA9awKklV/BJh4IO8d+qHNKserW3tLwgQZIssgYni68JY80yL47wEP1UMRcSx0TnuR5TGey2yr/qJ+2u/Q1GIUn0f5l+mRKJWYWVMQC6qOJLLzunoHgSwYHlVyHZb+PYkDCPAr1/I4ELNic4joqX9Uva+DH+e+OsIy3uT3mvbdJZWHLddSTPX1XmVVNQ9M2vhuwQxlPiA574AXhnVojqinjDgbGRQR4E7kkYeKStE9DxB4DD9QVyNtqvxe0R3Qi3dotaIxYOCzMdcvxnGmBQitTVgF/iFndw0nLlOu3NXqu814xKBDEAY5yQXlvWI9SzuWo1OrXBgpZxMarLpL6UvNLKvysL3iVZRvEZ4rtDeI0JvH+LTJBkbtozy9zVsCD4h8NEJj8wZr2vuApiXfZORkZALsTn4uBvzdoK6yZQ2eHpL53RO3FDwKt2dyGAx3UVLGE2zj7pgKGM6Tz8p/tYCVTOOvBDnBwzvGXomIN6CUmFFpt1hHJZyALGaCe12I=
 before_install:
-  - if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then openssl aes-256-cbc -k "$password" -in id_rsa.enc -out deploy_key -d; fi
+  - >-
+    if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then openssl aes-256-cbc -k
+    "$password" -in id_rsa.enc -out deploy_key -d; fi
 after_success:
-- cd $TRAVIS_BUILD_DIR/scripts
-- chmod 755 ghp.sh
-- "./ghp.sh"
+  - cd $TRAVIS_BUILD_DIR/scripts
+  - chmod 755 ghp.sh
+  - ./ghp.sh
