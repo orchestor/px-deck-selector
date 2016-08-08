@@ -58,11 +58,9 @@ Element which displays a dropdown of decks and returns the url for the selected 
             },
 
             /**
-             * selected deck.
              *
              * Only used for communicating out the selected deck.  The first deck
              * in the list of decks will always be selected initially.
-
              */
             selectedDeck: {
                 type: Object,
@@ -128,6 +126,8 @@ Element which displays a dropdown of decks and returns the url for the selected 
         /*
         *  this will allow to take care of adding or removing deck
         *  which needs to be handled from the host component
+        *
+        * @event _triggerDeckEvent
         * */
         _triggerDeckEvent: function(e){
           this.fire('deckEvent', e.model.configOptions.eventType );
@@ -135,7 +135,7 @@ Element which displays a dropdown of decks and returns the url for the selected 
         },
 
         /*
-        * only called when the when clicked outside of menu
+        * only called when the user clicked outside of menu
         * */
         _closeMenu: function(e, el){
           if (!el.contains(e.target)) {

@@ -1,6 +1,14 @@
+v1.4.3
+==================
+* updated to new mega demo
+
+v1.4.2
+==================
+* Added repo screenshot
+
 v1.4.1
 ==================
-* Added vulcanize 
+* Added vulcanize
 
 v1.4.0
 ==================

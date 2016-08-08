@@ -2,6 +2,8 @@
 
 Px-Deck-Selector displays a drop-down of decks and returns the url for the selected deck.
 
+[![px-deck-selector demo](px-deck-selector.png?raw=true)](https://predixdev.github.io/px-deck-selector)
+
 ## Overview
 
 Use the Px-Deck-Selector element to enable your users to choose a deck from a drop-down list. Set the decks using an array of objects with `name` and `url` properties. When a user selects a new deck, the `selected-deck-url` will be updated.

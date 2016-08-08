@@ -38,7 +38,7 @@
     "tag": "v0.2.14",
     "commit": "ea4fd15c19407c6fe4e849ec97162a009a95c804"
   },
-  "_source": "https://github.com/PredixDev/px-headings-design.git",
-  "_target": "~0.2.8",
-  "_originalSource": "https://github.com/PredixDev/px-headings-design.git"
+  "_source": "https://github.com/predixDev/px-headings-design.git",
+  "_target": "^0.2.14",
+  "_originalSource": "px-headings-design"
 }
