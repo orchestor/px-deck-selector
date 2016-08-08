@@ -24,7 +24,9 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     'css/noprefix/px-deck-selector-sketch.css': 'sass/px-deck-selector-sketch.scss',
-                    'css/noprefix/px-deck-selector.css': 'sass/px-deck-selector-predix.scss'
+                    'css/noprefix/px-deck-selector.css': 'sass/px-deck-selector-predix.scss',
+                    'css/noprefix/px-deck-selector-demo.css': 'sass/px-deck-selector-demo.scss'
+
                 }
             }
         },
