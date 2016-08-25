@@ -1,8 +1,10 @@
 <link rel="import" href="../polymer/polymer.html"/>
-
+<link rel="import" href="../px-polymer-font-awesome/polymer-font-awesome.html" />
 
 <!--
 Element which displays a dropdown of decks and returns the url for the selected deck.
+
+Use the px-deck-selector element to enable your users to choose a deck from a drop-down list. Set the decks using an array of objects with `name` and `url` properties. When a user selects a new deck, the `selected-deck-url` will be updated.
 
 ##### Usage
 
@@ -15,7 +17,7 @@ Element which displays a dropdown of decks and returns the url for the selected 
     <template>
         <div class="dropdown-text" on-click="_toggleDropdown" hidden$="{{!isDecks}}">
             <span class="epsilon">{{selectedDeck.name}}</span>
-            <i class="fa fa-caret-down"></i>
+            <iron-icon icon="fa:fa-caret-down"></iron-icon>
         </div>
         <ul id="dropdown" class="dropdown-menu list-bare" hidden>
             <template is="dom-repeat" items="{{decks}}" as="deck">
