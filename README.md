@@ -6,7 +6,7 @@ Px-Deck-Selector displays a drop-down of decks and returns the url for the selec
 
 ## Overview
 
-Use the Px-Deck-Selector element to enable your users to choose a deck from a drop-down list. Set the decks using an array of objects with `name` and `url` properties. When a user selects a new deck, the `selected-deck-url` will be updated.
+Use the px-deck-selector element to enable your users to choose a deck from a drop-down list. Set the decks using an array of objects with `name` and `url` properties. When a user selects a new deck, the `selected-deck-url` will be updated.
 
 ## Usage
 
@@ -36,7 +36,7 @@ Second, import the component to your application with the following tag in your 
 Finally, use the component in your application:
 
 ```html
-<px-deck-selector></px-deck-selector>
+<px-deck-selector decks="{{...}}" selected-deck="{{...}}"></px-deck-selector>
 ```
 
 <br />
@@ -88,4 +88,4 @@ $ grunt devmode
 
 ## Known Issues
 
-Please use [Github Issues](https://github.com/PredixDev/COMPONENT/issues) to submit any bugs you might find.
+Please use [Github Issues](https://github.com/PredixDev/px-deck-selector/issues) to submit any bugs you might find.

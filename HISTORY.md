@@ -1,3 +1,7 @@
+v1.4.5
+==================
+* added code pen and added shadow dom support for icons
+
 v1.4.4
 ==================
 * added overflow to demoContainer and removed flex__wrap from mega-demo
