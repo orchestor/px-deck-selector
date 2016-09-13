@@ -1,4 +1,4 @@
-<link rel="import" href="../polymer/polymer.html"/>
+<link rel="import" href="../polymer/polymer.html" />
 <link rel="import" href="../px-polymer-font-awesome/polymer-font-awesome.html" />
 
 <!--
@@ -12,157 +12,166 @@ Use the px-deck-selector element to enable your users to choose a deck from a dr
 
 @demo demo.html
 -->
+
+<link rel="import" href="css/px-deck-selector-styles.html">
+
 <dom-module id="px-deck-selector">
-    <link rel="import" type="css" href="css/px-deck-selector.css"/>
-    <template>
-        <div class="dropdown-text" on-click="_toggleDropdown" hidden$="{{!isDecks}}">
-            <span class="epsilon">{{selectedDeck.name}}</span>
-            <iron-icon icon="fa:fa-caret-down"></iron-icon>
-        </div>
-        <ul id="dropdown" class="dropdown-menu list-bare" hidden>
-            <template is="dom-repeat" items="{{decks}}" as="deck">
-                <li on-click="_selectDeck">
-                    <div>{{deck.name}}</div>
-                </li>
-            </template>
-            <template is="dom-if" if="{{configOptions.edit}}">
-                <li on-click="_triggerDeckEvent" class="deck-editor">
-                  <div>{{configOptions.actionType}}</div>
-                </li>
-            </template>
-        </ul>
-    </template>
+  <template>
+    <style include="px-deck-selector-styles"></style>
+    <style include="px-theme-styles"></style>
+    <div class="dropdown-text" on-click="_toggleDropdown" hidden$="{{!isDecks}}">
+      <span class="epsilon">{{selectedDeck.name}}</span>
+      <iron-icon icon="fa:fa-caret-down"></iron-icon>
+    </div>
+    <ul id="dropdown" class="dropdown-menu list-bare" hidden>
+      <template is="dom-repeat" items="{{decks}}" as="deck">
+        <li on-click="_selectDeck">
+          <div>{{deck.name}}</div>
+        </li>
+      </template>
+      <template is="dom-if" if="{{configOptions.edit}}">
+        <li on-click="_triggerDeckEvent" class="deck-editor">
+          <div>{{configOptions.actionType}}</div>
+        </li>
+      </template>
+    </ul>
+  </template>
 </dom-module>
 
 <script>
-    Polymer({
+  Polymer({
 
-        is: 'px-deck-selector',
+    is: 'px-deck-selector',
 
-        properties: {
+    properties: {
 
-            /**
-             * List of decks to display.
-             *
-             *      [
-             *          {id: 1, name: 'First Deck', url: '/deck1'},
-             *          {id: 2, name: 'Second Deck', url: '/deck2'},
-             *          {id: 3, name: 'Third Deck', url: '/deck3'}
-             *      ]
-             *
-             * The first deck will always be selected initially.
-             * Each object needs a `name` and `url` property.
-             */
-            decks: {
-                type: Array,
-                value: function() {return [];},
-                observer: '_setDecks'
-            },
-
-            /**
-             *
-             * Only used for communicating out the selected deck.  The first deck
-             * in the list of decks will always be selected initially.
-             */
-            selectedDeck: {
-                type: Object,
-                value: function() {return {};},
-                notify: true
-            },
-
-            /**
-             * @private
-             */
-             isDecks: {
-                type: Boolean,
-                value: false
-             },
-
-             /**
-              * @private
-              * needed for IE...
-              */
-             isDropdownOpen: {
-                type: Boolean,
-                value: false
-             },
-
-            /*
-            * Config option
-            * */
-            configOptions: {
-              value: null,
-              notify: true
-            }
+      /**
+       * List of decks to display.
+       *
+       *      [
+       *          {id: 1, name: 'First Deck', url: '/deck1'},
+       *          {id: 2, name: 'Second Deck', url: '/deck2'},
+       *          {id: 3, name: 'Third Deck', url: '/deck3'}
+       *      ]
+       *
+       * The first deck will always be selected initially.
+       * Each object needs a `name` and `url` property.
+       */
+      decks: {
+        type: Array,
+        value: function() {
+          return [];
         },
+        observer: '_setDecks'
+      },
 
-        _setDecks: function() {
-            this.set('isDecks', this.decks && this.decks.length > 0);
-
-            var selectedDeck = null;
-
-            if(this.isDecks) {
-                selectedDeck = this.decks[0];
-            }
-
-            this.set('selectedDeck', selectedDeck);
+      /**
+       *
+       * Only used for communicating out the selected deck.  The first deck
+       * in the list of decks will always be selected initially.
+       */
+      selectedDeck: {
+        type: Object,
+        value: function() {
+          return {};
         },
+        notify: true
+      },
 
-        _toggleDropdown: function(e) {
+      /**
+       * @private
+       */
+      isDecks: {
+        type: Boolean,
+        value: false
+      },
 
-            this.isDropdownOpen = !this.isDropdownOpen;
-            this.toggleAttribute('hidden', !this.isDropdownOpen, this.$.dropdown);
-            /*
-            * adding event listener to the document when menu is opened
-            * */
-            if(e){
-                this._handleDocumentClick();
-            }
-        },
+      /**
+       * @private
+       * needed for IE...
+       */
+      isDropdownOpen: {
+        type: Boolean,
+        value: false
+      },
 
-        _selectDeck: function(e) {
-          this.set('selectedDeck', e.model.deck);
-          this._toggleDropdown(false);
-        },
+      /*
+       * Config option
+       * */
+      configOptions: {
+        value: null,
+        notify: true
+      }
+    },
 
-        /*
-        *  this will allow to take care of adding or removing deck
-        *  which needs to be handled from the host component
-        *
-        * @event _triggerDeckEvent
-        * */
-        _triggerDeckEvent: function(e){
-          this.fire('deckEvent', e.model.configOptions.eventType );
-          this._toggleDropdown(false);
-        },
+    _setDecks: function() {
+      this.set('isDecks', this.decks && this.decks.length > 0);
 
-        /*
-        * only called when the user clicked outside of menu
-        * */
-        _closeMenu: function(e, el){
-          if (!el.contains(e.target)) {
-            this.isDropdownOpen = false;
-            el.setAttribute('hidden', true);
-            document.removeEventListener('mouseup', this.evtHandler, false);
-          }
-        },
+      var selectedDeck = null;
 
-        /*
-        * Adding and removing event listener on the document
-        * */
-         _handleDocumentClick : function(){
+      if (this.isDecks) {
+        selectedDeck = this.decks[0];
+      }
 
-           var el = this.$.dropdown;
-           var self = this;
+      this.set('selectedDeck', selectedDeck);
+    },
 
-           if (!el.hasAttribute('hidden')) {
-            document.addEventListener('mouseup', self.evtHandler = function(e){self._closeMenu(e, el)}, false);
-            //document.ddMenu = this;
-          }
-          else {
-            document.removeEventListener('mouseup', self.evtHandler, false);
-            //document.ddMenu = null;
-          }
-        }
-    });
+    _toggleDropdown: function(e) {
+
+      this.isDropdownOpen = !this.isDropdownOpen;
+      this.toggleAttribute('hidden', !this.isDropdownOpen, this.$.dropdown);
+      /*
+       * adding event listener to the document when menu is opened
+       * */
+      if (e) {
+        this._handleDocumentClick();
+      }
+    },
+
+    _selectDeck: function(e) {
+      this.set('selectedDeck', e.model.deck);
+      this._toggleDropdown(false);
+    },
+
+    /*
+     *  this will allow to take care of adding or removing deck
+     *  which needs to be handled from the host component
+     *
+     * @event _triggerDeckEvent
+     * */
+    _triggerDeckEvent: function(e) {
+      this.fire('deckEvent', e.model.configOptions.eventType);
+      this._toggleDropdown(false);
+    },
+
+    /*
+     * only called when the user clicked outside of menu
+     * */
+    _closeMenu: function(e, el) {
+      if (!el.contains(e.target)) {
+        this.isDropdownOpen = false;
+        el.setAttribute('hidden', true);
+        document.removeEventListener('mouseup', this.evtHandler, false);
+      }
+    },
+
+    /*
+     * Adding and removing event listener on the document
+     * */
+    _handleDocumentClick: function() {
+
+      var el = this.$.dropdown;
+      var self = this;
+
+      if (!el.hasAttribute('hidden')) {
+        document.addEventListener('mouseup', self.evtHandler = function(e) {
+          self._closeMenu(e, el)
+        }, false);
+        //document.ddMenu = this;
+      } else {
+        document.removeEventListener('mouseup', self.evtHandler, false);
+        //document.ddMenu = null;
+      }
+    }
+  });
 </script>
