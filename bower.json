@@ -1,6 +1,6 @@
 {
   "name": "px-deck-selector",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "main": [
     "px-deck-selector.html"
   ],
@@ -41,10 +41,8 @@
     "px-code-design": "~0.2.11"
   },
   "resolutions": {
-    "iron-ajax": "^1.4.3",
-    "px-viewport-design": "~0.4.1",
-    "px-typography-design": "^1.1.0",
-    "px-clipboard": "^0.1.1",
-    "px-theme": "^1.1.2"
+    "px-typography-design": "~1.1.1",
+    "iron-ajax": "^1.0.0",
+    "px-theme": "~1.1.2"
   }
 }

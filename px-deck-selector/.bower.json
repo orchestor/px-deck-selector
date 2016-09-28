@@ -1,6 +1,6 @@
 {
   "name": "px-deck-selector",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "main": [
     "px-deck-selector.html"
   ],
@@ -41,11 +41,11 @@
     "px-code-design": "~0.2.11"
   },
   "homepage": "https://github.com/PredixDev/px-deck-selector",
-  "_release": "1.5.0",
+  "_release": "1.5.1",
   "_resolution": {
     "type": "version",
-    "tag": "v1.5.0",
-    "commit": "511555c67c1d813dd6b5ee750a3674a6e0bc9870"
+    "tag": "v1.5.1",
+    "commit": "540f98259543559e021782a3bbcb74281a0923b3"
   },
   "_source": "https://github.com/PredixDev/px-deck-selector.git",
   "_target": "^1.2.0",
