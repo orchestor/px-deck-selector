@@ -36,6 +36,11 @@ Predix branding rules go in px-deck-selector-predix.scss, not in this file.
 
 // Component
 
+:host{
+  --iron-icon-height: $inuit-base-font-size;
+  --iron-icon-width: $inuit-base-font-size;
+}
+
 .dropdown-text {
   cursor: pointer;
 }
@@ -52,5 +57,8 @@ Predix branding rules go in px-deck-selector-predix.scss, not in this file.
 
 // Trumps
 @import "inuit-clearfix/_trumps.clearfix.scss";
-@import "px-spacing-responsive-design/_trumps.spacing-responsive.scss";
+
+$inuit-enable-padding--tiny : true;
+
+@import "px-spacing-design/_trumps.spacing.scss";
 @import "px-widths-responsive-design/_trumps.widths-responsive.scss";

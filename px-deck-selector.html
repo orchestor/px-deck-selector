@@ -26,12 +26,12 @@ Use the px-deck-selector element to enable your users to choose a deck from a dr
     <ul id="dropdown" class="dropdown-menu list-bare" hidden>
       <template is="dom-repeat" items="{{decks}}" as="deck">
         <li on-click="_selectDeck">
-          <div>{{deck.name}}</div>
+          <div class="u-p--">{{deck.name}}</div>
         </li>
       </template>
       <template is="dom-if" if="{{configOptions.edit}}">
         <li on-click="_triggerDeckEvent" class="deck-editor">
-          <div>{{configOptions.actionType}}</div>
+          <div class="u-p--">{{configOptions.actionType}}</div>
         </li>
       </template>
     </ul>
