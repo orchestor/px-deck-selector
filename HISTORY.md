@@ -1,3 +1,7 @@
+v1.5.3
+==================
+* Update dependencies
+
 v1.4.5
 ==================
 * added code pen and added shadow dom support for icons
