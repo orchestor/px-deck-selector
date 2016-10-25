@@ -1,6 +1,6 @@
 {
   "name": "px-deck-selector",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "main": [
     "px-deck-selector.html"
   ],
@@ -35,14 +35,17 @@
     "px-demo-snippet": "^0.6.3",
     "px-toggle-design": "^0.2.12",
     "px-headings-design": "^0.2.14",
-    "px-actionable-text-icons-design": "^0.0.3",
+    "px-actionable-text-icons-design": "^0.1.0",
     "px-code-design": "~0.2.11",
     "px-list-bare-design": "^0.2.13",
     "px-list-inline-design": "^0.2.11"
   },
   "resolutions": {
-    "iron-ajax": "^1.4.3",
-    "px-theme": "^1.1.2",
-    "px-typography-design": "^1.1.0"
+    "px-defaults-design": "^0.3.0",
+    "px-functions-design": "~1.0.0",
+    "px-iconography-design": "^0.3.1",
+    "px-theme": "~1.1.2",
+    "px-typography-design": "~1.1.1",
+    "iron-ajax": "^1.0.0"
   }
 }
