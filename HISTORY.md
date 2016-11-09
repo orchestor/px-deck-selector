@@ -1,3 +1,8 @@
+v1.5.4
+==================
+* fixed spacing issue, incorrect hover color
+* added style variables for theming
+
 v1.5.3
 ==================
 * Update dependencies
