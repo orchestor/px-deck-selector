@@ -1,3 +1,7 @@
+v1.5.5
+==================
+* updated dependencies
+
 v1.5.4
 ==================
 * fixed spacing issue, incorrect hover color
