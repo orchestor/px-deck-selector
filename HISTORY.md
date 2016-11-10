@@ -1,3 +1,7 @@
+v1.5.6
+==================
+* updated documentation on events and configOptions
+
 v1.5.5
 ==================
 * updated dependencies

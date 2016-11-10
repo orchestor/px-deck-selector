@@ -31,8 +31,7 @@
   		<h1 class="delta">px-deck-selector</h1>
       <div class="description-text">
     		<p>
-          A series of cards on a page is a view (also referred to as a deck). Each view can contain different cards
-          and widgets based on a variety of use cases. Views can be switched selecting the view/deck selector.
+          Element which displays a dropdown of decks and returns the url for the selected deck. Use the px-deck-selector element to enable your users to choose a deck from a drop-down list. Set the decks using an array of objects with "name" and "url" properties. When a user selects a new deck, the "selected-deck" property will be updated and the "selected-deck-changed" event will be fired.
         </p>
       </div>
   		<div class="flex">
@@ -139,6 +138,19 @@ window.addEventListener('WebComponentsReady', function() {
       indexPlusOne = function(num) {
         return num + 1;
       };
+
+    // window.setTimeout(function() {
+    //    document.querySelector('px-deck-selector').addEventListener('selected-deck-changed', function(evt) {
+    //      console.log(evt.detail.value);
+    //    });
+    //  },300);
+
+    // window.setTimeout(function() {
+    //    document.querySelector('px-deck-selector').addEventListener('deckEvent', function(evt) {
+    //      console.log(evt.detail);
+    //    });
+    //  },300);
+
   template.selected = 0;
   template.optionsArray = optionsArray;
   template.indexPlusOne = indexPlusOne;
