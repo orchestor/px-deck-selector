@@ -4,11 +4,11 @@
 <!--
 Element which displays a dropdown of decks and returns the url for the selected deck.
 
-Use the px-deck-selector element to enable your users to choose a deck from a drop-down list. Set the decks using an array of objects with `name` and `url` properties. When a user selects a new deck, the `selected-deck-url` will be updated.
+Use the px-deck-selector element to enable your users to choose a deck from a drop-down list. Set the decks using an array of objects with `name` and `url` properties. When a user selects a new deck, the `selected-deck` property will be updated and the `selected-deck-changed` event will be fired.
 
 ##### Usage
 
-    <px-deck-selector decks="{{...}}" selected-deck="{{...}}"></px-deck-selector>
+    <px-deck-selector decks="[{...}]" selected-deck="{...}"></px-deck-selector>
 
 ### Styling
 The following custom properties are available for styling:
@@ -31,7 +31,7 @@ Custom property | Description | Default
   <template>
     <style include="px-deck-selector-styles"></style>
     <style include="px-theme-styles"></style>
-    <div class="dropdown-text" on-click="_toggleDropdown" hidden$="{{!isDecks}}">
+    <div class="dropdown-text" on-click="_toggleDropdown" hidden$="{{!_isDecks}}">
       <span class="epsilon">{{selectedDeck.name}}</span>
       <iron-icon icon="fa:fa-caret-down"></iron-icon>
     </div>
@@ -58,16 +58,14 @@ Custom property | Description | Default
     properties: {
 
       /**
-       * List of decks to display.
+       * Array of deck objects to display. The first deck will always be selected initially.
+       * Each object needs a `name` and `url` property.
        *
        *      [
        *          {id: 1, name: 'First Deck', url: '/deck1'},
        *          {id: 2, name: 'Second Deck', url: '/deck2'},
        *          {id: 3, name: 'Third Deck', url: '/deck3'}
        *      ]
-       *
-       * The first deck will always be selected initially.
-       * Each object needs a `name` and `url` property.
        */
       decks: {
         type: Array,
@@ -78,8 +76,7 @@ Custom property | Description | Default
       },
 
       /**
-       *
-       * Only used for communicating out the selected deck.  The first deck
+       * Used for communicating out the currently selected deck.  The first deck
        * in the list of decks will always be selected initially.
        */
       selectedDeck: {
@@ -89,27 +86,31 @@ Custom property | Description | Default
         },
         notify: true
       },
-
-      /**
-       * @private
-       */
-      isDecks: {
+      _isDecks: {
         type: Boolean,
         value: false
       },
-
       /**
-       * @private
-       * needed for IE...
+       * Needed for IE...
        */
-      isDropdownOpen: {
+      _isDropdownOpen: {
         type: Boolean,
         value: false
       },
-
       /*
-       * Config option
-       * */
+       * Config options appear after the list of decks in a separate section, and can be used by an application
+       * to add or remove decks from the menu, for example. The object should contain an `actionType` which is the
+       * text which will be displayed in the menu, and an `eventType` which will be included in evt.detail of
+       * the `deckEvent` event that is fired when the option is selected. Applications should listen for the `deckEvent`
+       * event and handle it accordingly (by displaying a modal for adding/removing decks, for example).
+       *
+       *      {
+       *          edit : true,
+       *          actionType : "Add Dashboard",
+       *          eventType : "addDashboard"
+       *      }
+       *
+       **/
       configOptions: {
         value: null,
         notify: true
@@ -117,11 +118,11 @@ Custom property | Description | Default
     },
 
     _setDecks: function() {
-      this.set('isDecks', this.decks && this.decks.length > 0);
+      this.set('_isDecks', this.decks && this.decks.length > 0);
 
       var selectedDeck = null;
 
-      if (this.isDecks) {
+      if (this._isDecks) {
         selectedDeck = this.decks[0];
       }
 
@@ -130,8 +131,8 @@ Custom property | Description | Default
 
     _toggleDropdown: function(e) {
 
-      this.isDropdownOpen = !this.isDropdownOpen;
-      this.toggleAttribute('hidden', !this.isDropdownOpen, this.$.dropdown);
+      this._isDropdownOpen = !this._isDropdownOpen;
+      this.toggleAttribute('hidden', !this._isDropdownOpen, this.$.dropdown);
       /*
        * adding event listener to the document when menu is opened
        * */
@@ -146,10 +147,7 @@ Custom property | Description | Default
     },
 
     /*
-     *  this will allow to take care of adding or removing deck
-     *  which needs to be handled from the host component
-     *
-     * @event _triggerDeckEvent
+     *  Fires the event "deckEvent" where evt.detail will contain the eventType specified in configOptions.
      * */
     _triggerDeckEvent: function(e) {
       this.fire('deckEvent', e.model.configOptions.eventType);
@@ -157,11 +155,11 @@ Custom property | Description | Default
     },
 
     /*
-     * only called when the user clicked outside of menu
+     * Called when the user clicks outside of the menu.
      * */
     _closeMenu: function(e, el) {
       if (!el.contains(e.target)) {
-        this.isDropdownOpen = false;
+        this._isDropdownOpen = false;
         el.setAttribute('hidden', true);
         document.removeEventListener('mouseup', this.evtHandler, false);
       }
@@ -185,5 +183,18 @@ Custom property | Description | Default
         //document.ddMenu = null;
       }
     }
+    /**
+    * Event that is fired when the user changes the selected deck in the dropdown.
+    * `evt.detail.value` will contain the object corresponding to the selected deck.
+    *
+    * @event selected-deck-changed
+    **/
+
+    /**
+    * Event fired when the option specified in configOptions is selected from the dropdown.
+    * `evt.detail` will contain the eventType specified in configOptions.
+    *
+    * @event deckEvent
+    **/
   });
 </script>
