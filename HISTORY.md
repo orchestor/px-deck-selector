@@ -1,3 +1,8 @@
+
+v1.5.7
+==================
+* bower updating px-demo-snippet
+
 v1.5.6
 ==================
 * updated documentation on events and configOptions
