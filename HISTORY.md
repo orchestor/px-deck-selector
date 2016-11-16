@@ -1,4 +1,9 @@
 
+v1.5.8
+==================
+* changing Gruntfile.js to gulpfile.js
+
+
 v1.5.7
 ==================
 * bower updating px-demo-snippet
