@@ -1,6 +1,6 @@
 {
     "name": "px-deck-selector",
-    "version": "1.5.8",
+    "version": "1.5.9",
     "main": [
         "px-deck-selector.html"
     ],
