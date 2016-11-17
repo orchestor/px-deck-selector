@@ -1,13 +1,13 @@
 {
   "name": "px-deck-selector",
-  "version": "1.5.7",
+  "version": "1.5.9",
   "main": [
     "px-deck-selector.html"
   ],
   "ignore": [
     ".*",
     "npm-debug.log",
-    "Gruntfile.js",
+    "gulpfile.js",
     "sass",
     "bower_components",
     "node_modules",
@@ -41,11 +41,11 @@
     "px-list-inline-design": "^0.2.11"
   },
   "homepage": "https://github.com/PredixDev/px-deck-selector",
-  "_release": "1.5.7",
+  "_release": "1.5.9",
   "_resolution": {
     "type": "version",
-    "tag": "v1.5.7",
-    "commit": "07d11519141112fdb5b2ed18d87a33df932cc55d"
+    "tag": "v1.5.9",
+    "commit": "463c7691ed572caf168ab0065605ec11db2b6fbf"
   },
   "_source": "https://github.com/PredixDev/px-deck-selector.git",
   "_target": "^1.2.0",
