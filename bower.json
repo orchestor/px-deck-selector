@@ -1,6 +1,6 @@
 {
     "name": "px-deck-selector",
-    "version": "1.5.9",
+    "version": "1.5.10",
     "main": [
         "px-deck-selector.html"
     ],
@@ -19,7 +19,7 @@
     ],
     "dependencies": {
         "polymer": "^v1.6.1",
-        "px-theme": "~1.1.2",
+        "px-theme": "^2.0.1",
         "px-polymer-font-awesome": "^0.1.9",
         "px-spacing-design": "^0.3.8"
     },
