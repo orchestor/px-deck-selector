@@ -1,6 +1,6 @@
 {
   "name": "px-deck-selector",
-  "version": "1.5.9",
+  "version": "1.5.11",
   "main": [
     "px-deck-selector.html"
   ],
@@ -19,33 +19,33 @@
   ],
   "dependencies": {
     "polymer": "^v1.6.1",
-    "px-theme": "~1.1.2",
+    "px-theme": "^2.0.1",
     "px-polymer-font-awesome": "^0.1.9",
     "px-spacing-design": "^0.3.8"
   },
   "devDependencies": {
-    "px-starter-kit-design": "~0.6.0",
-    "px-buttons-design": "~0.4.26",
-    "px-forms-design": "#~0.3.15",
-    "px-button-group-design": "~0.3.12",
-    "px-typography-design": "~1.1.1",
+    "px-starter-kit-design": "^0.6.0",
+    "px-buttons-design": "^0.4.26",
+    "px-forms-design": "^0.3.15",
+    "px-button-group-design": "^0.3.12",
+    "px-typography-design": "^1.1.1",
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#~1.2.3",
-    "px-tabs": "~0.5.2",
+    "px-tabs": "^0.5.2",
     "px-api-viewer": "^0.1.0",
     "px-demo-snippet": "^0.6.9",
     "px-toggle-design": "^0.2.12",
     "px-headings-design": "^0.2.14",
     "px-actionable-text-icons-design": "^0.1.0",
-    "px-code-design": "~0.2.11",
+    "px-code-design": "^0.2.11",
     "px-list-bare-design": "^0.2.13",
     "px-list-inline-design": "^0.2.11"
   },
   "homepage": "https://github.com/PredixDev/px-deck-selector",
-  "_release": "1.5.9",
+  "_release": "1.5.11",
   "_resolution": {
     "type": "version",
-    "tag": "v1.5.9",
-    "commit": "463c7691ed572caf168ab0065605ec11db2b6fbf"
+    "tag": "v1.5.11",
+    "commit": "850269db4f19d0e28b36191ef7e6a45e9ebf5589"
   },
   "_source": "https://github.com/PredixDev/px-deck-selector.git",
   "_target": "^1.2.0",

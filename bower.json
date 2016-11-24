@@ -1,6 +1,6 @@
 {
   "name": "px-deck-selector",
-  "version": "1.5.10",
+  "version": "1.5.11",
   "main": [
     "px-deck-selector.html"
   ],
@@ -24,28 +24,28 @@
     "px-spacing-design": "^0.3.8"
   },
   "devDependencies": {
-    "px-starter-kit-design": "~0.6.0",
-    "px-buttons-design": "~0.4.26",
-    "px-forms-design": "#~0.3.15",
-    "px-button-group-design": "~0.3.12",
-    "px-typography-design": "~1.1.1",
+    "px-starter-kit-design": "^0.6.0",
+    "px-buttons-design": "^0.4.26",
+    "px-forms-design": "^0.3.15",
+    "px-button-group-design": "^0.3.12",
+    "px-typography-design": "^1.1.1",
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#~1.2.3",
-    "px-tabs": "~0.5.2",
+    "px-tabs": "^0.5.2",
     "px-api-viewer": "^0.1.0",
     "px-demo-snippet": "^0.6.9",
     "px-toggle-design": "^0.2.12",
     "px-headings-design": "^0.2.14",
     "px-actionable-text-icons-design": "^0.1.0",
-    "px-code-design": "~0.2.11",
+    "px-code-design": "^0.2.11",
     "px-list-bare-design": "^0.2.13",
     "px-list-inline-design": "^0.2.11"
   },
   "resolutions": {
-    "px-iconography-design": "^0.3.1",
-    "iron-ajax": "^1.0.0",
+    "iron-ajax": "^1.4.3",
     "px-defaults-design": "~0.3.5",
     "px-functions-design": "~1.0.0",
     "px-theme": "^2.0.1",
-    "px-typography-design": "^1.1.1"
+    "px-iconography-design": "^0.3.1",
+    "px-typography-design": "^1.1.3"
   }
 }
