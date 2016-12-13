@@ -1,3 +1,11 @@
+v1.6.1
+==================
+* Update missed design depndencies
+
+v1.6.0
+==================
+* Updated dependencies
+
 v1.5.12
 ==================
 * changing browser in wct testing from safari 8 to safari 10 on elcapitan

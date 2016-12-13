@@ -1,6 +1,6 @@
 {
   "name": "px-buttons-design",
-  "version": "0.4.40",
+  "version": "1.1.2",
   "authors": [
     "General Electric",
     "Harry Roberts <harry@csswizardry.com>"
@@ -23,21 +23,22 @@
     "OSS_Notice.pdf"
   ],
   "dependencies": {
-    "px-colors-design": "~0.2.27",
-    "px-defaults-design": "~0.3.5"
+    "px-colors-design": "^0.2.27",
+    "px-defaults-design": "^1.0.2",
+    "px-iconography-design": "^0.3.7"
   },
   "devDependencies": {
-    "px-sass-doc": "^0.2.11",
-    "px-starter-kit-design": "~0.6.4",
-    "px-polymer-font-awesome": "~0.1.9"
+    "px-sass-doc": "^0.3.0",
+    "px-starter-kit-design": "^0.7.0",
+    "px-polymer-font-awesome": "^1.1.0"
   },
-  "_release": "0.4.40",
+  "_release": "1.1.2",
   "_resolution": {
     "type": "version",
-    "tag": "v0.4.40",
-    "commit": "0d6716517288d22d97884000f663a4d46a9fe147"
+    "tag": "v1.1.2",
+    "commit": "0e86c5c081b921b7a602c0731d6e1f3cab38dc35"
   },
   "_source": "https://github.com/predixDev/px-buttons-design.git",
-  "_target": "~0.4.0",
+  "_target": "^1.1.0",
   "_originalSource": "px-buttons-design"
 }
