@@ -1,6 +1,6 @@
 {
   "name": "px-deck-selector",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "main": [
     "px-deck-selector.html"
   ],
@@ -41,22 +41,13 @@
     "px-list-inline-design": "^0.3.0"
   },
   "resolutions": {
-    "px-spacing-design": "^0.4.0",
-    "px-normalize-design": "^0.4.0",
-    "iron-ajax": "^1.0.0",
-    "px-widths-responsive-design": "^0.4.0",
-    "px-iconography-design": "^0.3.1",
-    "px-functions-design": "~1.0.0",
-    "px-polymer-font-awesome": "^1.1.0",
+    "iron-ajax": "^1.4.3",
     "px-defaults-design": "^1.0.2",
-    "px-spacing-responsive-design": "^0.4.0",
-    "px-widths-tools-design": "^0.3.0",
-    "px-clipboard": "^0.2.0",
-    "px-theme": "^2.0.1",
     "px-mixins-design": "^0.3.0",
-    "px-flexbox-design": "^0.4.0",
-    "px-buttons-design": "^1.1.0",
-    "px-actionable-text-icons-design": "^1.1.0",
-    "px-typography-design": "^1.1.1"
+    "px-spacing-design": "^0.4.0",
+    "px-functions-design": "~1.0.0",
+    "px-iconography-design": "^0.3.7",
+    "px-theme": "^2.0.1",
+    "px-typography-design": "^1.2.0"
   }
 }
