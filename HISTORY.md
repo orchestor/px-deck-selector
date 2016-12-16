@@ -1,3 +1,7 @@
+v1.6.2
+==================
+* Fixed dropdown padding issue
+
 v1.6.1
 ==================
 * Update missed design depndencies
